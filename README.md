@@ -16,7 +16,7 @@
 3. GitHub にサインインする
 4. GitHub Copilot Chat 拡張機能を確認する
 5. Copilot Chat と Agent モードの動作を確認する
-6. Python と pip を準備する
+6. Python 環境を準備する
 
 ## 1. 本リポジトリをローカル環境に用意する
 
@@ -76,28 +76,44 @@ Copilot Chat のモード選択でAgentモードを選択できることを確�
 
 ![Agent モードの選択](./assets/agent-mode.png)
 
-## 6. Python と pip を準備
+## 6. Python 環境を準備
 
-1. 使用しているOSに応じて Python と pip をインストールしてください。
+1. 使用しているOSに応じて Python をインストールしてください。
 
    | OS | インストールコマンド |
    | --- | --- |
    | Windows (PowerShell) | `winget install -e --id Python.Python.3.14` |
    | macOS (Homebrew) | `brew install python` |
-   | Linux（Ubuntu / Debian） | `sudo apt update`<br>`sudo apt install -y python3 python3-pip` |
+   | Linux（Ubuntu / Debian） | `sudo apt update`<br>`sudo apt install -y python3 python3-venv` |
 
-   - その他の Linux は各ディストリビューションのパッケージマネージャーで Python 3・pip・venv を導入してください。
+   - その他の Linux は各ディストリビューションのパッケージマネージャーで Python 3 および venv を導入してください。
 
-2. インストール後、次のコマンドでPythonが3以降であり、pipが利用できることを確認してください。
+2. インストール後、次のコマンドでPythonがインストールされていることを確認してください。
 
-   ```bash
+   ```powershell
    # Windows
    python --version
-   python -m pip --version
-
-   # macOS / Linux
-   python3 --version
-   python3 -m pip --version
    ```
 
-   - Windowsで`python --version`の出力が`Python`だけになる場合は、実際のPythonではなくMicrosoft Storeの実行エイアスが起動しています。PowerShellをいったん閉じて開き直した後、バージョン番号が表示されることを確認してくだい。
+   - Windowsで`python --version`の出力が`Python`だけになる場合は、実際のPythonではなくMicrosoft Storeの実行エイリアスが起動しています。PowerShellをいったん閉じて開き直した後、バージョン番号が表示されることを確認してください。
+
+   ```bash
+   # macOS / Linux
+   python3 --version
+   ```
+
+3. venv と pip が利用できることを確認してください。次のコマンドを実行し、画像のようなヘルプメッセージが表示されれば確認完了です。
+
+   ```powershell
+   # Windows
+   python -m venv -h
+   ```
+
+   ![venv の確認 (PowerShell)](./assets/venv-powershell.png)
+
+   ```bash
+   # macOS / Linux
+   python3 -m venv -h
+   ```
+
+   ![venv の確認 (macOS / Linux)](./assets/venv-macos-linux.png)
